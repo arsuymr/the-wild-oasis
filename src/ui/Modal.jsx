@@ -48,3 +48,32 @@ const Button = styled.button`
     color: var(--color-grey-500);
   }
 `;
+import { HiXMark } from "react-icons/hi2";
+import { createPortal } from "react-dom";
+import { createContext, useContext, useState } from "react";
+const ModalContext = createContext();
+function Modal({ children }) {
+  const [openName, setOpenName] = useState("");
+  const close = () => setOpenName("");
+  const open = setOpenName;
+}
+function Open({ children, opens }) {
+  const { open } = useContext(ModalContext);
+  return children;
+}
+function Window({ children, onClose }) {
+  return createPortal(
+    <Overlay>
+      <StyledModal>
+        <Button onClick={onClose}>
+          <HiXMark />
+        </Button>
+        <div>{children}</div>
+      </StyledModal>
+    </Overlay>,
+    document.body
+  );
+}
+Modal.Open = Open;
+Modal.Window = Window;
+export default Modal;

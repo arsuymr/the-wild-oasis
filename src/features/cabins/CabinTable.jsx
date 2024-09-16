@@ -30,6 +30,7 @@ const TableHeader = styled.header`
 `;
 function CabinTable() {
   const { isLoading, cabins, error } = useCabins();
+  console.log("piw", cabins);
   if (isLoading) return <Spinner />;
   //the queryfn has to return a promise
   return (

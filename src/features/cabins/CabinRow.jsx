@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useState } from "react";
-
 import CreateCabinForm from "./CreateCabinForm";
 import { useDeleteCabin } from "./useDeleteCabin";
 import { formatCurrency } from "../../utils/helpers";
